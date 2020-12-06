@@ -78,6 +78,7 @@ config WIREGUARD
 	select NET_UDP_TUNNEL
 	select DST_CACHE
 	select CRYPTO
+<<<<<<< HEAD
 	select CRYPTO_LIB_CURVE25519
 	select CRYPTO_LIB_CHACHA20POLY1305
 	select CRYPTO_LIB_BLAKE2S
@@ -91,6 +92,15 @@ config WIREGUARD
 	select CRYPTO_CURVE25519_NEON if ARM && KERNEL_MODE_NEON
 	select CRYPTO_CHACHA_MIPS if CPU_MIPS32_R2
 	select CRYPTO_POLY1305_MIPS if CPU_MIPS32 || (CPU_MIPS64 && 64BIT)
+=======
+	select CRYPTO_ALGAPI
+	select ARM_CRYPTO if ARM
+	select ARM64_CRYPTO if ARM64
+	select VFP
+	select VFPv3 if CPU_V7
+	select NEON if CPU_V7
+	select KERNEL_MODE_NEON if CPU_V7
+>>>>>>> b300793119da (drivers: net: Modify WireGuard for backward compat)
 	help
 	  WireGuard is a secure, fast, and easy to use replacement for IPSec
 	  that uses modern cryptography and clever networking tricks. It's
